@@ -11,6 +11,18 @@ exports.seed = function(knex, Promise) {
 					description: '',
 					priority: 1
 			},
+			{
+				id: 2,
+				title: 'Walk a thing',
+				description: '',
+				priority: 3
+		},
+		{
+				id: 3,
+				title: 'Make a view',
+				description: '',
+				priority: 5
+		},
 
       ]);
     });
