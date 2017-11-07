@@ -14,6 +14,18 @@ router.get('/', function(req, res, next) {
 router.get('/new', (req,res) =>{
 	res.render('new')
 })
+
+router.get('/:id/edit', (req,res) => {
+	const id = req.params.id;
+	knex('todos')
+	.select()
+	.where('id', id)
+	.first()
+	.then(todos =>{
+	res.render('edit', todos)
+})
+})
+
 router.get('/:id', (req,res) =>{
 	const id = req.params.id;
 	if (typeof id != 'undefined') {
@@ -38,26 +50,44 @@ function validTodo(todos){
 		typeof todos.priority != 'undefined'
 }
 
-router.post('/', (req, res) =>{
-	console.log(req.body);
+
+function newfunction(req,res,callback){
 	if(validTodo(req.body)){
 		const todos = {
 			title: req.body.title,
 			description: req.body.description,
 			priority: req.body.priority
 		};
+
+		callback(todos);
+} else {
+	res.status(500)
+	res.render('error', {
+		message: 'invalid todo'
+	})
+}
+}
+router.post('/', (req, res) =>{
+	newfunction(req,res,(todos) =>{
 		knex('todos').insert(todos, 'id')
 		.then(ids => {
 			const id = ids[0];
 			console.log(id)
 			res.redirect(`/todos/${id}`)
 		})
-	} else {
-		res.status(500)
-		res.render('error', {
-			message: 'invalid todo'
-		})
-	}
+})
+});
+
+router.put('/:id', (req, res) =>{
+newfunction(req,res,(todos)=> {
+	knex('todos')
+	.where('id', req.params.id)
+	.update(todos, 'id')
+	then(() =>{
+		const id = ids[0]
+		res.redirect(`/todos/${id}`)
+	})
+})
 })
 
 module.exports = router;
