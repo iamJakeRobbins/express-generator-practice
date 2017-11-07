@@ -1,0 +1,21 @@
+<form class="form" action="/todos" method="post">
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input type="text" class="form-control" id="title" name='title' placeholder="enter a new todo">
+	</div>
+	<div class="form-group">
+		<label for="description">Description</label>
+		<textarea name="description" id='description'></textarea>
+	</div>
+	<div class="form-group">
+	    <label for="priority">Priority</label>
+	    <select class="form-control" name="priority" id="priority">
+	      <option>1</option>
+	      <option>2</option>
+	      <option>3</option>
+	      <option>4</option>
+	      <option>5</option>
+	    </select>
+	  </div>
+		<button type="submit" class="btn btn-success">Submit</button>
+</form>

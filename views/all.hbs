@@ -1,9 +1,7 @@
 <h1>hello world</h1>
 <ul class = 'list-group'>
 {{#each todos}}
-	<li class = 'list-group-item'>{{title}}</li>
+	<a href="/todos/{{id}}" class = 'list-group-item'>{{title}}</li>
 {{/each}}
 </ul>
-
-
-finished at 21 min
+<a href="/todos/new"> <button class="btn btn-primary"> New Todo </button></a>
