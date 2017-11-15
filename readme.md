@@ -6,7 +6,7 @@
 [x]Show new form with /todo/new
 [x]Create a record with POST /todo
 [x]Show one record with GET /todo/:id
-[ ]Show an edit form with GET /todo/:id/edit
-[ ]Update a record with PUT /todo/:id
+[x]Show an edit form with GET /todo/:id/edit
+[x]Update a record with PUT /todo/:id
 [ ]Delete a record with DELETE /todo/:id
 [ ]Redirect on create / update / delete

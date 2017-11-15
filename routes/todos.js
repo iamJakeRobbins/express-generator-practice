@@ -83,9 +83,9 @@ newfunction(req,res,(todos)=> {
 	knex('todos')
 	.where('id', req.params.id)
 	.update(todos, 'id')
-	then(() =>{
+	.then((ids) =>{
 		const id = ids[0]
-		res.redirect(`/todos/${id}`)
+		res.redirect(`/todos/`)
 	})
 })
 })

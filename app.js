@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('express-method-override')('method_override_param_name'));
+app.use(methodOverride('_method'))
 
 app.use('/', index);
 app.use('/todos', todos);
