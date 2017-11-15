@@ -1,0 +1,21 @@
+<form class="form" action="/todos/{{id}}?_method=DELETE" method="post">
+	<div class="form-group">
+		<label for="title">{{Title}}</label>
+		<input type="text" class="form-control" id="title" name='title' placeholder="enter a new todo" value="{{title}}">
+	</div>
+	<div class="form-group">
+		<label for="description">Description</label>
+		<textarea name="description" id='description' value="{{description}}">{{description}}</textarea>
+	</div>
+	<div class="form-group">
+	    <label for="priority">Priority</label>
+	    <select class="form-control" name="priority" id="priority" value="{{priority}}">
+	      <option>1</option>
+	      <option>2</option>
+	      <option>3</option>
+	      <option>4</option>
+	      <option>5</option>
+	    </select>
+	  </div>
+		<button type="submit" class="btn btn-danger">delete</button>
+</form>

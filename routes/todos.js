@@ -26,6 +26,17 @@ router.get('/:id/edit', (req,res) => {
 })
 })
 
+router.get('/:id/delete', (req,res) =>{
+	const id = req.params.id;
+	knex('todos')
+	.select()
+	.where('id', id)
+	.first()
+	.then(todo =>{
+		res.render('delete', todo)
+	})
+})
+
 router.get('/:id', (req,res) =>{
 	const id = req.params.id;
 	if (typeof id != 'undefined') {
@@ -88,6 +99,18 @@ newfunction(req,res,(todos)=> {
 		res.redirect(`/todos/`)
 	})
 })
+})
+
+router.delete('/:id', (req, res) =>{
+	const id = req.param.id
+	knex('todos')
+	.select()
+	.where('id', req.params.id)
+	.del()
+	.then((result) =>{
+		console.log(result);
+		res.redirect('/todos')
+	})
 })
 
 module.exports = router;
