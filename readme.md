@@ -8,5 +8,5 @@
 [x]Show one record with GET /todo/:id
 [x]Show an edit form with GET /todo/:id/edit
 [x]Update a record with PUT /todo/:id
-[ ]Delete a record with DELETE /todo/:id
-[ ]Redirect on create / update / delete
+[x]Delete a record with DELETE /todo/:id
+[x]Redirect on create / update / delete
